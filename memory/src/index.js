@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CoolComponent } from './CoolComponent';
 
 ReactDOM.render(
-  <div>
-    <CoolComponent />
-    <CoolComponent adjective='Awesome' />
-  </div>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
