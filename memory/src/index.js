@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { CoolComponent } from './CoolComponent';
 
 ReactDOM.render(
-  React.createElement(CoolComponent),
+  <div>
+    <CoolComponent />
+    <CoolComponent adjective='Awesome' />
+  </div>,
   document.getElementById('root')
 );
 

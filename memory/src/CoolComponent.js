@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function CoolComponent() {
-    return React.createElement('p', {}, 'Youpi so Cool!');
+export function CoolComponent({ adjective = 'Cool' }) {
+    return <p>Youpi so { adjective }!</p>;
 }
