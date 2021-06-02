@@ -8,6 +8,8 @@ class App extends Component {
     console.log(card, " clicked !");
   }
 
+  won = new Date().getSeconds() % 2 === 0;
+
   render() {
     return (
       <div className="memory">
@@ -18,6 +20,7 @@ class App extends Component {
         <Card card="🎩" feedback="visible" onCardClick={this.handleCardClick} />
         <Card card="🐶" feedback="hidden" onCardClick={this.handleCardClick} />
         <Card card="🐱" feedback="justMatched" onCardClick={this.handleCardClick} />
+        { this.won && <p>GAGNÉ !</p> }
       </div>
     );
   }
