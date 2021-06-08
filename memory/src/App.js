@@ -32,12 +32,14 @@ class App extends Component {
     return (
       <div className="memory">
         <GuessCount guesses={0} />
-        <Card card="😀" feedback="hidden" onCardClick={this.handleCardClick} />
-        <Card card="🎉" feedback="justMatched" onCardClick={this.handleCardClick} />
-        <Card card="💖" feedback="justMismatched" onCardClick={this.handleCardClick} />
-        <Card card="🎩" feedback="visible" onCardClick={this.handleCardClick} />
-        <Card card="🐶" feedback="hidden" onCardClick={this.handleCardClick} />
-        <Card card="🐱" feedback="justMatched" onCardClick={this.handleCardClick} />
+        { this.cards.map((card, index) => (
+            <Card
+              card={card}
+              feedback="visible"
+              key={index}
+              onCardClick={this.handleCardClick}
+            />
+        )) }
         { this.won && <p>GAGNÉ !</p> }
       </div>
     );
