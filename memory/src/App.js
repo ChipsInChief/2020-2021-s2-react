@@ -4,6 +4,7 @@ import GuessCount from "./GuessCount";
 import Card from './Card'
 
 import shuffle from "lodash.shuffle";
+import HallOfFame, { FAKE_HOF } from "./HallOfFame";
 
 const SIDE = 6;
 const SYMBOLS = "😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓🍐🍟🍿";
@@ -41,6 +42,7 @@ class App extends Component {
             />
         )) }
         { this.won && <p>GAGNÉ !</p> }
+        { <HallOfFame entries={ FAKE_HOF } /> }
       </div>
     );
   }
