@@ -4,7 +4,8 @@ import GuessCount from "./GuessCount";
 import Card from './Card'
 
 import shuffle from "lodash.shuffle";
-import HallOfFame, { FAKE_HOF } from "./HallOfFame";
+import HallOfFame from "./HallOfFame";
+import { FAKE_HOF } from "./FakeData/FakeHof";
 
 const SIDE = 6;
 const SYMBOLS = "😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓🍐🍟🍿";
