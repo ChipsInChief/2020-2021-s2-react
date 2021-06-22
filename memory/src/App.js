@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="memory">
-        <GuessCount guesses={0} />
+        <GuessCount />
         { this.cards.map((card, index) => (
             <Card
               card={card}

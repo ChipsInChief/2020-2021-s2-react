@@ -1,6 +1,10 @@
-import React from 'react'
-import './GuessCount.css'
+import React from "react";
+import "./GuessCount.css";
 
 const GuessCount = ({ guesses }) => <div className="guesses">{guesses}</div>;
 
-export default GuessCount
+GuessCount.defaultProps = {
+  guesses: 0,
+};
+
+export default GuessCount;
