@@ -24,8 +24,9 @@ class App extends Component {
     return shuffle(result);
   }
 
-  handleCardClick(card) {
-    console.log(card, " clicked !");
+  // Méthode définie sous forme de fonction fléchée pour besoin de binding (utilisation du this)
+  handleCardClick = card => {
+    console.log(card, this);
   }
 
   won = new Date().getSeconds() % 2 === 0;
