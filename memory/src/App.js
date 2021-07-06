@@ -10,6 +10,8 @@ import { FAKE_HOF } from "./FakeData/FakeHof";
 const SIDE = 6;
 const SYMBOLS = "😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓🍐🍟🍿";
 
+const VISUAL_PAUSE_MSECS = 750;
+
 class App extends Component {
   state = {
     cards: this.generateCards(),
@@ -44,6 +46,24 @@ class App extends Component {
 
     this.handleNewPairClosedBy(index);
   };
+
+  handleNewPairClosedBy(index) {
+    const { cards, currentPair, guesses, matchedCardIndices } = this.state;
+
+    const newPair = [currentPair[0], index];
+    const newGuesses = guesses + 1;
+    const matched = cards[newPair[0]] === cards[newPair[1]];
+
+    this.setState({ currentPair: newPair, guesses: newGuesses });
+
+    if (matched) {
+      this.setState({
+        matchedCardIndices: [...matchedCardIndices, ...newPair],
+      });
+    }
+    
+    setTimeout(() => this.setState({ currentPair: [] }), VISUAL_PAUSE_MSECS);
+  }
 
   getFeedbackForCard(index) {
     const { currentPair, matchedCardIndices } = this.state;
