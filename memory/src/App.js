@@ -30,8 +30,19 @@ class App extends Component {
   }
 
   // Méthode définie sous forme de fonction fléchée pour besoin de binding (utilisation du this)
-  handleCardClick = (card) => {
-    console.log(card, this);
+  handleCardClick = (index) => {
+    const { currentPair } = this.state;
+
+    if (currentPair.length === 2) {
+      return;
+    }
+
+    if (currentPair.length === 0) {
+      this.setState({ currentPair: [index] });
+      return;
+    }
+
+    this.handleNewPairClosedBy(index);
   };
 
   getFeedbackForCard(index) {
@@ -49,8 +60,6 @@ class App extends Component {
     return indexMatched ? "visible" : "hidden";
   }
 
-  // won = new Date().getSeconds() % 2 === 0;
-
   render() {
     const { cards, guesses, matchedCardIndices } = this.state;
     const won = matchedCardIndices.length === cards.length;
@@ -62,6 +71,7 @@ class App extends Component {
           <Card
             card={card}
             feedback={this.getFeedbackForCard(index)}
+            index={index}
             key={index}
             onCardClick={this.handleCardClick}
           />
